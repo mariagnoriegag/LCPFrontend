@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=100%, initial-scale=0.7, maximum-scale=2.0, minimum-scale=0.5,target-densitydpi=device-dpi, user-scalable=no" />
+
+    <title>Welcome to Lima City Pass</title>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet" type="text/css">
+    <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet" type="text/css"></link>
+    <link href="statics/styles/styles.css" rel="stylesheet" type="text/css">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+        <v-card flat>
+            <v-layout row  child-flex wrap>
+                <div>
+                    <v-toolbar scroll-off-screen fixed class="deep-orange lighten-2">
+                        <img src="statics/images/whitelogo.png" style="width: 200px; height: 65%;">
+                        <v-toolbar-items class="hidden-sm-and-down ml-5">
+                            <v-btn class="white--text" flat>Lima City Pass</v-btn>
+                            <v-btn class="white--text" flat>Que incluye</v-btn>
+                            <v-btn class="white--text" flat>Como se usa</v-btn>
+                        </v-toolbar-items>
+                        <v-spacer></v-spacer>
+                        <v-btn class="primary brown lighten-3 white--text mr-5">Login</v-btn>
+                    </v-toolbar>
+            </v-layout>
+        </v-card>
+
+        <main>
+            <v-layout>
+                <v-carousel>
+                    <v-carousel-item v-for="(item,i) in imagesSlider" v-bind:src="item.src" :key="i"></v-carousel-item>
+                </v-carousel>
+            </v-layout>
+            <v-container flat style="margin-top: -100px">
+                <v-layout row wrap align-center id="save">
+                    <v-flex xs12 sm12 md12 lg12>
+                        <v-btn class="deep-orange lighten-3 white--text mb-0" block primary @click.native="snackbar = true" dark>SAVE</v-btn>
+                    </v-flex>
+                </v-layout>
+            </v-container>
+            <v-container fill-height style="margin-top: -36px">
+                <v-layout row wrap id="extra1">
+                    <v-flex xs12 sm12 md7 lg8 flexbox id="info">
+                        <v-card class="grey lighten-2 grey--text text--darken-2 mb-2">
+                            <v-card-text class="subheading justify ">
+                                Lorem Ipsum es simplemente el texto de relleno de las imprentas y archivos de texto. Lorem Ipsum ha sido el texto de relleno estándar de las industrias desde el año 1500, cuando un impresor (N. del T. persona que se dedica a la imprenta) desconocido usó
+                                una galería de textos y los mezcló de tal manera que logró hacer un libro de textos especimen. No sólo sobrevivió 500 años, sino que tambien ingresó como texto de relleno en documentos electrónicos, quedando esencialmente
+                                igual al original.
+                            </v-card-text>
+                            </v-card-text>
+                        </v-card>
+                    </v-flex>
+                    <v-flex xs12 sm12 md5 lg4 class="mb-3 mt-0" id="buying">
+                        <v-card class="grey lighten-2 grey--text text--darken-2">
+                            <v-card-text>
+                                <v-container fluid>
+                                    <v-layout row>
+                                        <v-flex xs4 class="" style="margin-top: -13px">
+                                            <v-subheader>Tarjetas</v-subheader>
+                                        </v-flex>
+                                        <v-flex xs8 class="">
+                                            <label>Numero de tarjetas</label>
+                                            <br/>
+                                            <input value=0 class="ntarjetas" onkeyup="getPrice();" aria-label="Numero de tarjetas" type="number"></input>
+                                            <br/>
+                                        </v-flex>
+                                    </v-layout>
+                                    <v-layout row class="">
+                                        <v-flex xs4 class="" style="margin-top: 8px">
+                                            <v-subheader>Tu precio</v-subheader>
+                                        </v-flex>
+                                        <v-flex xs8 class="" style="margin-top: -20px">
+                                            <br/><br/>
+                                            <label>Costo total (S/.)</label>
+                                            <p id="soles"> 0 </p>
+                                            <br/>
+                                        </v-flex>
+                                    </v-layout>
+                                    <div class="text-xs-center mt-0">
+                                        <v-btn round class="brown lighten-3 white--text " style="margin-top: -20px">Continuar con el pago</v-btn>
+                                    </div>
+                                </v-container>
+                            </v-card-text>
+                        </v-card>
+                    </v-flex>
+                </v-layout>
+            </v-container>
+
+            <v-card flat class="deep-orange lighten-3 white--text mb-4">
+                <v-layout row align-center id="top">
+                    <v-flex sm12 class="mb-4 mt-5" id="buying">
+                        <p class="text-xs-center">
+                            <b>BOTON TOP ATTRACTIONS INCLUDED</b>
+                        </p>
+            </v-card>
+            </v-flex>
+            </v-layout>
+            </v-card>
+
+            <v-card flat class="">
+                <v-layout row align-center class="" id="steps">
+                    <v-flex xs12 sm12 md12 lg12 class="mt-3 mb-2" id="buying">
+                        <p class="text-xs-center brown--text text--lighten-2"><b>PASOS</b></p>
+                    </v-flex>
+                </v-layout>
+
+                <v-layout row wrap align-center id="steps">
+                    <v-flex xs12 sm12 md4 lg4>
+                        <v-card dark class="brown lighten-3 white--text mb-3">
+                            <v-card-text>#1</v-card-text>
+                        </v-card>
+                    </v-flex>
+                    <v-flex xs12 sm12 md4 lg4>
+                        <v-card dark class="brown lighten-3 white--text mb-3">
+                            <v-card-text>#2</v-card-text>
+                        </v-card>
+                    </v-flex>
+                    <v-flex xs12 sm12 md4 lg4>
+                        <v-card dark class="brown lighten-3 white--text mb-3">
+                            <v-card-text>#3</v-card-text>
+                        </v-card>
+                    </v-flex>
+                </v-layout>
+
+            </v-card>
+
+            <v-card flat class="grey lighten-2 mt-3">
+                <v-layout>
+                    <v-flex xs12 sm12 md12 lg12 fill-height class="mt-4 mb-0" id="buying">
+                        <p class="text-xs-center deep-orange--text text--lighten-1"><b>BOTON DESCUENTOS</b></p>
+                    </v-flex>
+                </v-layout>
+                <v-layout row wrap id="descuentos" class="">
+                    <v-flex xs6 sm3 md3 lg3 class="">
+                        <div class="text-xs-center">
+                            <v-card class="elevation-0">
+                                <v-card-text>
+                                    <div>
+                                        <v-btn flat fab large class="deep-orange lighten-2 white--text">
+                                            <i class="material-icons">restaurant</i>
+                                        </v-btn>
+                                    </div>
+                                    Restaurantes
+                                </v-card-text>
+                            </v-card>
+                        </div>
+                    </v-flex>
+                    <v-flex xs6 sm3 md3 lg3 class="">
+                        <div class="text-xs-center">
+                            <v-card class="elevation-0">
+                                <v-card-text>
+                                    <div>
+                                        <v-btn flat fab large class="deep-orange lighten-2 white--text">
+                                            <i class="material-icons">mood</i>
+                                        </v-btn>
+                                    </div>
+                                    Experiencias
+                                </v-card-text>
+                            </v-card>
+                        </div>
+                    </v-flex>
+                    <v-flex xs6 sm3 md3 lg3 class="">
+                        <div class="text-xs-center">
+                            <v-card class="elevation-0">
+                                <v-card-text>
+                                    <div>
+                                        <v-btn flat fab large class="deep-orange lighten-2 white--text">
+                                            <i class="material-icons">movie_filter</i>
+                                        </v-btn>
+                                    </div>
+                                    Shows
+                                </v-card-text>
+                            </v-card>
+                        </div>
+                    </v-flex>
+                    <v-flex xs6 sm3 md3 lg3 class="mb-4">
+                        <div class="text-xs-center">
+                            <v-card class="elevation-0">
+                                <v-card-text>
+                                    <div>
+                                        <v-btn flat fab large class="deep-orange lighten-2 white--text">
+                                            <i class="material-icons">event</i>
+                                        </v-btn>
+                                    </div>
+                                    Eventos
+                                </v-card-text>
+                            </v-card>
+                        </div>
+                    </v-flex>
+                </v-layout>
+            </v-card>
+
+        </main>
+
+
+        <v-footer dark class="mt-5">
+            <v-spacer></v-spacer>
+            <div>&copy; 2017</div>
+        </v-footer>
+
+
+        </v-app>
+        </div>
+
+        <script src="statics/controllers/index-controller.js"></script>
+</body>
+
+</html>
