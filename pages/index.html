@@ -23,9 +23,23 @@
     <div id="app">
         <v-card flat>
             <v-layout row  child-flex wrap>
-                <div>
+                <div class="text-xs-center">
                     <v-toolbar scroll-off-screen fixed class="red lighten-2">
-                        <img src="statics/images/whitelogo.png" style="width: 200px; height: 65%;">
+                        <v-menu offset-y>
+                            <img src="statics/images/whitelogo.png" style="height:65%; width:200px;" slot="activator">
+                            <v-list class="grey lighten-2 hidden-md-and-up">
+                                <v-list-tile >
+                                    <v-list-tile-title class="brown--text text--lighten-2">Quienes somos</v-list-tile-title>
+                                </v-list-tile >
+                                <v-list-tile >
+                                    <v-list-tile-title class="brown--text text--lighten-2">Que incluye</v-list-tile-title>
+                                </v-list-tile >
+                                <v-list-tile >
+                                    <v-list-tile-title class="brown--text text--lighten-2">Como se usa</v-list-tile-title>
+                                </v-list-tile>
+                            </v-list>
+                        </v-menu>
+
                         <v-toolbar-items class="hidden-sm-and-down ml-5">
                             <v-btn class="white--text" flat>Lima City Pass</v-btn>
                             <v-btn class="white--text" flat>Que incluye</v-btn>
@@ -205,7 +219,7 @@
         </main>
 
 
-        <v-footer dark class="mt-5 red lighten-2">
+        <v-footer dark class="mt-5 red lighten-2 white--text">
             <v-spacer></v-spacer>
             <div>&copy; 2017</div>
         </v-footer>
